@@ -30,7 +30,7 @@ include 'user_header.php';
 ?>
 
 <section class="orders">
-  <h2>Órdenes hechas</h2>
+  <h2>Placed Orders</h2>
   <div class="orders_cont">
     <?php
     $order_query=mysqli_query($conn,"SELECT * FROM `orders` WHERE user_id='$user_id'") or die('query failed');
@@ -41,20 +41,20 @@ include 'user_header.php';
       
     ?>
     <div class="orders_box">
-      <p> hecha el: <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
-      <p> nombre: <span><?php echo $fetch_orders['name']; ?></span> </p>
-      <p> número: <span><?php echo $fetch_orders['number']; ?></span> </p>
-      <p> email: <span><?php echo $fetch_orders['email']; ?></span> </p>
-      <p> dirección: <span><?php echo $fetch_orders['address']; ?></span> </p>
-      <p> método de pago: <span><?php echo $fetch_orders['method']; ?></span> </p>
-      <p> tus órdenes: <span><?php echo $fetch_orders['total_products']; ?></span> </p>
-      <p> total: <span>$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
-      <p> estado del pago: <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; } ?>;"><?php echo $fetch_orders['payment_status']; ?></span> </p>
+      <p> placed on : <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
+      <p> name : <span><?php echo $fetch_orders['name']; ?></span> </p>
+      <p> number : <span><?php echo $fetch_orders['number']; ?></span> </p>
+      <p> email : <span><?php echo $fetch_orders['email']; ?></span> </p>
+      <p> address : <span><?php echo $fetch_orders['address']; ?></span> </p>
+      <p> payment method : <span><?php echo $fetch_orders['method']; ?></span> </p>
+      <p> your orders : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
+      <p> total price : <span>$<?php echo $fetch_orders['total_price']; ?>/-</span> </p>
+      <p> payment status : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; } ?>;"><?php echo $fetch_orders['payment_status']; ?></span> </p>
     </div>
     <?php
     }
   }else{
-    echo '<p class="empty">¡No hay órdenes hechas!</p>';
+    echo '<p class="empty">no orders placed yet!</p>';
   }
     ?>
   </div>
