@@ -13,10 +13,10 @@ if (isset($_POST['add_to_cart'])) {
   $check = mysqli_query($conn, "SELECT * FROM `cart` where name='$pro_name' and user_id='$user_id'") or die('query failed');
 
   if (mysqli_num_rows($check) > 0) {
-    $message[] = 'Already added to cart!';
+    $message[] = '¡Producto ya agregado!';
   } else {
     mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,quantity,image) VALUES ('$user_id','$pro_name','$pro_price','$pro_quantity','$pro_image')") or die('query2 failed');
-    $message[] = 'Product added to cart!';
+    $message[] = '¡Producto agregado!';
   }
 }
 
@@ -77,7 +77,7 @@ if (isset($_POST['add_to_cart'])) {
       <?php
         }
       } else {
-        echo '<p class="empty">No Products Added Yet !</p>';
+        echo '<p class="empty">¡No hay productos agregados todavía!</p>';
       }
       ?>
     </div>
